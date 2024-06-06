@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: inherit;
 }
 
 $Soft-red: hsl(7, 99%, 70%);
@@ -25,7 +26,14 @@ $Fraunces: "Fraunces", serif;
 body {
     position: relative;
     text-align: center;
+    font-family: $Barlow;
+    line-height: 150%;
+    font-size: 18px;
+}
+
+h1, h2, h3 {
     font-family: $Fraunces;
+    line-height: 150%;
 }
 
 /* Header > Nav */
@@ -70,7 +78,7 @@ header {
 
 .services {
     display: grid;
-    grid-auto-rows: 1fr;
+    font-weight: 500;
 
     .filler,
     .service{
@@ -78,23 +86,40 @@ header {
         background-position: center;
     }
 
+    .filler {
+        min-height: 310px;
+    }
+
     .about {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
         gap: 2rem;
-        padding: 32px;
+        padding: 4rem 1.5rem;
+        line-height: 180%;
+        text-align: center;
 
         h2 {
-            
+            font-size: 36px;
+            font-weight: 900;
+            text-transform: capitalize;
+            color: $Very-dark-desaturated-blue;
         }
 
         p {
-
+            font-size: 18px;
+            color: $Very-dark-grayish-blue;
         }
 
-        a {
+        .learn-more{
+            font-family: $Fraunces;
+            font-weight: 700;
+            color: $Very-dark-desaturated-blue;
             text-transform: uppercase;
             text-decoration: none;
+            letter-spacing: 1px;
         }
     }
 
@@ -102,50 +127,96 @@ header {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        align-items: center;
         gap: 1rem;
-        padding: 1.5rem;
+        padding: 4rem 1.5rem;
+
+        min-height: 603px;
+
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 600;
+            max-width: 350px;
+        }
     }
 
     .egg {
-        background-image: url('./images/desktop/image-transform.jpg');
+        background-image: url('./images/mobile/image-transform.jpg');
     }
 
     .cup {
-        background-image: url('./images/desktop/image-stand-out.jpg');
+        background-image: url('./images/mobile/image-stand-out.jpg');
     }
 
     .cherry {
-        background-image: url('./images/desktop/image-graphic-design.jpg');
+        background-image: url('./images/mobile/image-graphic-design.jpg');
+        color: $Dark-desaturated-cyan;
     }
 
     .orange {
-        background-image: url('./images/desktop/image-photography.jpg');
+        background-image: url('./images/mobile/image-photography.jpg');
+        color: $Dark-blue;
     }
 }
+
+
 
 .testimonials {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
+    align-items: center;
+    gap: 4rem;
+    padding: 4rem 1.5rem;
+    color: $Very-dark-desaturated-blue;
+
+    justify-content: center;
+
+    h2 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 18px;
+        color: $Dark-grayish-blue;
+    }
 
     .clients {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
-    }
+        gap: 4rem;
+        max-width: 1200px;
 
-    .testimonial {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
+        .testimonial {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
 
-    img {
-        width: 64px;
-        border-radius: 50%;
-    }
+            img {
+                width: 64px;
+                border-radius: 50%;
+            }
+
+            p {
+                line-height: 200%;
+            }
+
+            .author {
+                .name {
+                    margin-bottom: 0.5rem;
+                    font-weight: 900;
+                }
+    
+                .position {
+                    font-size: 12px;
+                    color: $Dark-grayish-blue;
+                }
+            }
+        }
+    }    
 }
 
 .gallery {
@@ -162,7 +233,6 @@ header {
 footer {
     background-color: $Light-desaturated-cyan;
     color: $Dark-moderate-cyan;
-    font-family: $Barlow;
     font-weight: 600;
 
     display: flex;
@@ -202,16 +272,40 @@ footer {
 }
 
 @media screen and (min-width: 600px) {
+    
+
     .services {
         grid-template-columns: repeat(2, 1fr);
+
+        .about {
+            text-align: left;
+            padding: 0 9rem;
+            min-height: 600px;
+            align-items: start;
+        }
 
         .egg {
             grid-row: 1 / 2;
             grid-column: 2 / 3;
+            background-image: url('./images/desktop/image-transform.jpg');
+        }
+
+        .cup {
+            background-image: url('./images/desktop/image-stand-out.jpg');
+        }
+    
+        .cherry {
+            background-image: url('./images/desktop/image-graphic-design.jpg');
+        }
+    
+        .orange {
+            background-image: url('./images/desktop/image-photography.jpg');
         }
     }
 
     .testimonials {
+        padding: 10rem 2rem;
+
         .clients {
             flex-direction: row;
         }
