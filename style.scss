@@ -39,13 +39,37 @@ h1, h2, h3 {
 /* Header > Nav */
 header {
     position: absolute;
+    padding: 2rem;
     width: 100%;
+    font-weight: 600;
 
     nav {
         display: flex;
 
-        .brand {
+        .logo {
             margin-right: auto;
+            width: auto;
+            height: 36px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+
+            a {
+                color: $White;
+            }
+
+            .contact {
+                font-family: $Fraunces;
+                background-color: $White;
+                padding: 1rem 2rem;
+                border-radius: 2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: $Very-dark-desaturated-blue;
+            }
         }
     }
 }
@@ -66,7 +90,8 @@ header {
 
     .headline {
         margin-top: 10rem;
-        font-size: 32px;
+        font-size: 64px;
+        letter-spacing: 1rem;
         color: white;
         text-transform: uppercase;
     }
