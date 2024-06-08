@@ -10,7 +10,7 @@
 $Soft-red: hsl(7, 99%, 70%);
 $Yellow: hsl(51, 100%, 49%);
 $Dark-desaturated-cyan: hsl(167, 40%, 24%);
-$Light-desaturated-cyan: hsl(167, 44, 70);
+$Light-desaturated-cyan: hsl(167, 44, 70%);
 $Dark-blue: hsl(198, 62%, 26%);
 $Dark-moderate-cyan: hsl(168, 34%, 41%);
 
@@ -53,7 +53,6 @@ header {
         }
 
         .ham-menu-button {
-
             background-color: transparent;
             border: transparent;
 
@@ -63,11 +62,16 @@ header {
         }
 
         .ham-menu-options {
-            /* display: none; */
-            /* position: absolute; */
+            display: none;
+            
+            @media (min-width: 600px) {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
 
             a {
-                /* color: $White; */
+                color: $White;
             }
 
             .contact {
@@ -109,10 +113,9 @@ header {
             height: 0px;
             border-style: solid;
             
-            border-width: 40px; /* Bottom, right, top, left */
+            border-width: 40px;
             border-color:  transparent #fff transparent transparent ;
            }
-
 
             a {
                 color: $Dark-grayish-blue;
