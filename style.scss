@@ -52,13 +52,22 @@ header {
             height: 36px;
         }
 
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
+        .ham-menu-button {
+
+            background-color: transparent;
+            border: transparent;
+
+            @media (min-width: 600px) {
+                display: none;
+            }
+        }
+
+        .ham-menu-options {
+            /* display: none; */
+            /* position: absolute; */
 
             a {
-                color: $White;
+                /* color: $White; */
             }
 
             .contact {
@@ -69,6 +78,49 @@ header {
                 font-weight: 700;
                 text-transform: uppercase;
                 color: $Very-dark-desaturated-blue;
+            }
+        }
+
+        .ham-menu-options.active {
+            background-color: $White;
+            width: 85%;
+            padding: 2rem;
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+
+            position: absolute;
+            right: 0 ;
+            left: 0;
+            margin-top: 4rem;
+            margin-left: auto;
+            margin-right: auto;
+
+           /*  clip-path: polygon(0 10%, 90% 10%, 100% 0, 100% 100%, 0 100%); */
+
+           &::after {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: 0;
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            
+            border-width: 40px; /* Bottom, right, top, left */
+            border-color:  transparent #fff transparent transparent ;
+           }
+
+
+            a {
+                color: $Dark-grayish-blue;
+            }
+
+            .contact {
+                color: $Very-dark-desaturated-blue;
+                background-color: $Yellow;
             }
         }
     }
