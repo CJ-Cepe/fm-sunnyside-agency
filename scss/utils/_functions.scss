@@ -26,8 +26,3 @@ $default-max-bp: 700px;
     $max-size-rem: round(px-to-rem($max-size), 2);
     @return clamp(#{$min-size-rem}, #{$slope-to-unit}#{$unit} + #{$intercept-rem}, #{$max-size-rem});
 }
-
-/*
-    Fluid Typography
-    Reference: https://www.smashingmagazine.com/2022/10/fluid-typography-clamp-sass-functions/
-*/

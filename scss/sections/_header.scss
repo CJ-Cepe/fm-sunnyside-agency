@@ -1,4 +1,10 @@
-@import "functions";
+@use "../index" as *;
+
+@mixin flex-n-center(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 header {
     font-weight: 600;
