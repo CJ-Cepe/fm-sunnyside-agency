@@ -1,0 +1,93 @@
+@import "functions";
+
+header {
+    font-weight: 600;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    position: absolute;
+
+    .logo {
+        align-self:center;
+        margin-right: auto;
+    }
+    
+    nav {
+        @include flex-n-center();
+
+        .ham-opt {
+            display: none;
+            list-style-type: none;
+
+            a {
+                color: $White;
+            }
+
+            .contact {
+                font-family: $Fraunces;
+                background-color: $White;
+                padding: 1rem 2rem;
+                border-radius: 2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: $Very-dark-desaturated-blue;
+            }
+
+            @media (min-width: 700px) {
+                display: flex;
+                align-items: center;
+                gap: 2.5vw
+            }
+
+            &.active{
+                @media (max-width: 700px) {
+                    background-color: $White;
+                    width: 85%;
+                    padding: 2rem;
+                    
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 2rem;
+        
+                    position: absolute;
+                    right: 0 ;
+                    left: 0;
+                    margin-top: 4rem;
+                    margin-left: auto;
+                    margin-right: auto;
+        
+                   &::after {
+                    content: "";
+                    position: absolute;
+                    top: pxToRem(-20px);
+                    right: 0;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: pxToRem(40px);
+                    border-color:  transparent $White transparent transparent;
+                   }
+        
+                    a {
+                        color: $Dark-grayish-blue;
+                    }
+        
+                    .contact {
+                        color: $Very-dark-desaturated-blue;
+                        background-color: $Yellow;
+                    }
+                }
+            }
+        }
+
+        .ham-btn {
+            background-color: transparent;
+            border: transparent;
+
+            @media (min-width: 700px) {
+                display: none;
+            }
+        }
+    }
+}

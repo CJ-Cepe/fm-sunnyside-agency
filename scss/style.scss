@@ -1,16 +1,25 @@
+@use "sass:math";
+@import "functions";
+@import "header";
 
-/* simple css reset */
+@mixin flex-n-center(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 * {
     box-sizing: border-box;
+    font-family: inherit;
+    line-height: inherit;
     margin: 0;
     padding: 0;
-    font-family: inherit;
 }
 
 $Soft-red: hsl(7, 99%, 70%);
 $Yellow: hsl(51, 100%, 49%);
 $Dark-desaturated-cyan: hsl(167, 40%, 24%);
-$Light-desaturated-cyan: hsl(167, 44, 70%);
+$Light-desaturated-cyan: hsl(167, 44%, 70%);
 $Dark-blue: hsl(198, 62%, 26%);
 $Dark-moderate-cyan: hsl(168, 34%, 41%);
 
@@ -23,111 +32,29 @@ $White: hsl(0, 0%, 100%);
 $Barlow: "Barlow", sans-serif;
 $Fraunces: "Fraunces", serif;
 
+
+/* ====== GENERAL STYLING ====== */
 body {
-    position: relative;
-    text-align: center;
     font-family: $Barlow;
+    font-size: pxToRem(18px); // ?? 18 -> 16
+    text-align: center;
     line-height: 150%;
-    font-size: 18px;
+
+    position: relative; // ??
 }
 
 h1, h2, h3 {
     font-family: $Fraunces;
-    line-height: 150%;
 }
 
-/* Header > Nav */
-header {
-    position: absolute;
-    padding: 2rem;
-    width: 100%;
-    font-weight: 600;
-
-    nav {
-        display: flex;
-
-        .logo {
-            margin-right: auto;
-            width: auto;
-            height: 36px;
-        }
-
-        .ham-menu-button {
-            background-color: transparent;
-            border: transparent;
-
-            @media (min-width: 600px) {
-                display: none;
-            }
-        }
-
-        .ham-menu-options {
-            display: none;
-            
-            @media (min-width: 600px) {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            a {
-                color: $White;
-            }
-
-            .contact {
-                font-family: $Fraunces;
-                background-color: $White;
-                padding: 1rem 2rem;
-                border-radius: 2rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                color: $Very-dark-desaturated-blue;
-            }
-        }
-
-        .ham-menu-options.active {
-            background-color: $White;
-            width: 85%;
-            padding: 2rem;
-
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            gap: 2rem;
-
-            position: absolute;
-            right: 0 ;
-            left: 0;
-            margin-top: 4rem;
-            margin-left: auto;
-            margin-right: auto;
-
-           /*  clip-path: polygon(0 10%, 90% 10%, 100% 0, 100% 100%, 0 100%); */
-
-           &::after {
-            content: "";
-            position: absolute;
-            top: -20px;
-            right: 0;
-            width: 0px;
-            height: 0px;
-            border-style: solid;
-            
-            border-width: 40px;
-            border-color:  transparent #fff transparent transparent ;
-           }
-
-            a {
-                color: $Dark-grayish-blue;
-            }
-
-            .contact {
-                color: $Very-dark-desaturated-blue;
-                background-color: $Yellow;
-            }
-        }
-    }
+.logo {
+    height: #{fluid(28px, 36px)};
+    width: auto;
 }
+
+/* ====== SECTION STYLING ====== */
+
+
 
 /* Main */
 .hero {
@@ -351,7 +278,7 @@ footer {
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
     
 
     .services {
