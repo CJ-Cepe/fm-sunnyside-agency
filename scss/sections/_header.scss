@@ -1,11 +1,5 @@
 @use "../forward" as *;
 
-@mixin flex-n-center(){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 header {
     font-weight: 600;
     width: 100%;
@@ -19,17 +13,21 @@ header {
     }
     
     nav {
-        @include flex-n-center();
+        display: flex;
 
+        //style options
         .ham-opt {
-            display: none;
+            display: flex;
+                align-items: center;
+                gap: 2.5vw;
+           
             list-style-type: none;
 
-            a {
+            a { //
                 color: $White;
             }
 
-            .contact {
+            .contact { //
                 font-family: $Fraunces;
                 background-color: $White;
                 padding: 1rem 2rem;
@@ -39,60 +37,61 @@ header {
                 color: $Very-dark-desaturated-blue;
             }
 
-            @media (min-width: 700px) {
-                display: flex;
-                align-items: center;
-                gap: 2.5vw
-            }
-
-            &.active{
-                @media (max-width: 700px) {
-                    background-color: $White;
-                    width: 85%;
-                    padding: 2rem;
-                    
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 2rem;
-        
-                    position: absolute;
-                    right: 0 ;
-                    left: 0;
-                    margin-top: 4rem;
-                    margin-left: auto;
-                    margin-right: auto;
-        
-                   &::after {
-                    content: "";
-                    position: absolute;
-                    top: pxToRem(-20px);
-                    right: 0;
-                    width: 0;
-                    height: 0;
-                    border-style: solid;
-                    border-width: pxToRem(40px);
-                    border-color:  transparent $White transparent transparent;
-                   }
-        
-                    a {
-                        color: $Dark-grayish-blue;
-                    }
-        
-                    .contact {
-                        color: $Very-dark-desaturated-blue;
-                        background-color: $Yellow;
-                    }
-                }
+            @media (max-width: 700px) {
+                display: none;
+                //translate up || fade?
             }
         }
 
+        //style btns
         .ham-btn {
             background-color: transparent;
             border: transparent;
 
             @media (min-width: 700px) {
                 display: none;
+            }
+        }
+
+        //menu is clicked -> restyle options
+        .ham-btn[aria-expanded='true']{
+            + .ham-opt {
+                background-color: $White;
+                width: 85%;
+                padding: 2rem;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+        
+                position: absolute;
+                right: 0 ;
+                left: 0;
+                margin-top: 4rem;
+                margin-left: auto;
+                margin-right: auto;
+        
+                ::after {
+                content: "";
+                position: absolute;
+                top: px-to-rem(-20px);
+                right: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                 border-width: px-to-rem(40px);
+                border-color:  transparent $White transparent transparent;
+                }
+
+                a {
+                    color: $Dark-grayish-blue;
+                }
+    
+                .contact {
+                    color: $Very-dark-desaturated-blue;
+                    background-color: $Yellow;
+                }
             }
         }
     }
