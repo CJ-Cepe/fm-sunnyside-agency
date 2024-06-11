@@ -8,26 +8,33 @@ header {
     position: absolute;
 
     .logo {
-        align-self:center;
+        align-self: center;
         margin-right: auto;
     }
-    
+
     nav {
         display: flex;
 
         //style options
         .ham-opt {
             display: flex;
-                align-items: center;
-                gap: 2.5vw;
-           
+            align-items: center;
+            gap: 2.5vw;
+
             list-style-type: none;
 
-            a { //
+            a {
+                //
                 color: $White;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-underline-offset: 0.5rem;
+                }
             }
 
-            .contact { //
+            .contact {
+                //
                 font-family: $Fraunces;
                 background-color: $White;
                 padding: 1rem 2rem;
@@ -35,6 +42,12 @@ header {
                 font-weight: 700;
                 text-transform: uppercase;
                 color: $Very-dark-desaturated-blue;
+
+                &:hover {
+                    color: $White;
+                    background-color: rgba($color: $White, $alpha: 0.2);
+                    text-decoration: none;
+                }
             }
 
             @media (max-width: 700px) {
@@ -54,43 +67,47 @@ header {
         }
 
         //menu is clicked -> restyle options
-        .ham-btn[aria-expanded='true']{
-            + .ham-opt {
+        .ham-btn[aria-expanded='true'] {
+            +.ham-opt {
                 background-color: $White;
-                width: 85%;
+                width: calc(100% - 5.5rem);
                 padding: 2rem;
-                
+                justify-content: center;
+
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5), );
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 2rem;
-        
+
                 position: absolute;
-                right: 0 ;
+                right: 0;
                 left: 0;
-                margin-top: 4rem;
+                margin-top: 3rem;
                 margin-left: auto;
                 margin-right: auto;
-        
-                ::after {
-                content: "";
-                position: absolute;
-                top: px-to-rem(-20px);
-                right: 0;
-                width: 0;
-                height: 0;
-                border-style: solid;
-                 border-width: px-to-rem(40px);
-                border-color:  transparent $White transparent transparent;
-                }
+
+                clip-path: polygon(0 1rem, 95% 1rem, 100% 0, 100% 100%, 0 100%);
+                shape-outside: polygon(0 1rem, 95% 1rem, 100% 0, 100% 100%, 0 100%);
+                border-radius: 0 0 0.5rem 0.5rem;
+                padding-top: 3rem;
 
                 a {
-                    color: $Dark-grayish-blue;
+                    color: $Very-dark-grayish-blue;
                 }
-    
+
                 .contact {
                     color: $Very-dark-desaturated-blue;
                     background-color: $Yellow;
+                    display: inline-block;
+
+                    &:hover {
+                        background-color: rgba($color: $Yellow, $alpha: 0.7);
+                        text-decoration: none;
+                    }
                 }
             }
         }
