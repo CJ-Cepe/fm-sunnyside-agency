@@ -1,0 +1,128 @@
+@use "../forward" as *;
+
+
+.services {
+    display: grid;
+    font-weight: 500;
+
+    .filler,
+    .service {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .filler {
+        min-height: 310px;
+    }
+
+    .about {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        padding: 4rem 1.5rem; // ?
+        line-height: 180%; // ?
+        text-align: center;
+
+        h2 {
+            //
+            font-size: 36px;
+            font-weight: 900;
+            color: $Very-dark-desaturated-blue;
+        }
+
+        p {
+            //
+            color: $Very-dark-grayish-blue;
+        }
+
+        .learn-more {
+            font-family: $Fraunces;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            color: $Very-dark-desaturated-blue;
+            position: relative;
+
+            &::before {
+                content: "";
+                opacity: 0.3;
+                width: 110%;
+                border-radius: 5rem;
+                height: 0.6rem;
+
+                position: absolute;
+                bottom: 0.2rem;
+                left: -5%;
+                z-index: -1;
+
+                transition: 0.2s ease-out;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.transform {
+            .learn-more {
+                &::before {
+                    background-color: $Yellow;
+                }
+            }
+        }
+
+        &.stand {
+            .learn-more {
+                &::before {
+                    background-color: $Soft-red;
+                }
+            }
+        }
+    }
+
+    .service {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+        padding: 4rem 1.5rem;
+
+        min-height: 603px;
+
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 600;
+            max-width: 350px;
+        }
+    }
+
+    .egg {
+        background-image: url('./images/mobile/image-transform.jpg');
+    }
+
+    .cup {
+        background-image: url('./images/mobile/image-stand-out.jpg');
+    }
+
+    .cherry {
+        background-image: url('./images/mobile/image-graphic-design.jpg');
+        color: $Dark-desaturated-cyan;
+    }
+
+    .orange {
+        background-image: url('./images/mobile/image-photography.jpg');
+        color: $Dark-blue;
+    }
+}
