@@ -1,0 +1,45 @@
+@use "../forward" as *;
+
+.hero {
+    background-image: url('./images/desktop/image-header.jpg');
+    background-size: cover;
+    background-position: bottom center;
+    min-height: 100vh;
+    padding: 2rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+    text-align: center;
+
+    .headline {
+        margin-top: #{fluid(96px, 128px)};
+        font-size: #{fluid(36px, 48px)};
+        letter-spacing: 0.5rem;
+        color: white;
+        text-transform: uppercase;
+        line-height: 120%;
+    }
+
+    .arrow {
+        position: sticky;
+        top: 50px;
+        animation: beat 1s infinite;
+    }
+}
+
+
+@keyframes beat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
