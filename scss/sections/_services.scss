@@ -1,18 +1,17 @@
 @use "../forward" as *;
 
-
 .services {
     display: grid;
-    font-weight: 500;
-
-    .filler,
-    .service {
-        background-size: cover;
-        background-position: center;
-    }
+    font-weight: 600;
 
     .filler {
-        min-height: 310px;
+        min-height: px-to-rem(310px);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     .about {
@@ -22,20 +21,17 @@
         align-items: center;
         gap: 2rem;
 
-        padding: 4rem 1.5rem; // ?
-        line-height: 180%; // ?
-        text-align: center;
+        padding: 4rem #{fluid(28px, 160px)};
+        line-height: 170%;
 
         h2 {
-            //
             font-size: 36px;
             font-weight: 900;
             color: $Very-dark-desaturated-blue;
         }
 
         p {
-            //
-            color: $Very-dark-grayish-blue;
+            color: $Dark-grayish-blue;
         }
 
         .learn-more {
@@ -91,38 +87,63 @@
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
-        gap: 1rem;
-        padding: 4rem 1.5rem;
+        gap: 2rem;
+        padding: 0 1.5rem;
 
-        min-height: 603px;
+        min-height: px-to-rem(603px);
+        position: relative;
+
+        picture {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
 
         h2 {
-            font-size: 32px;
-            font-weight: 700;
+            font-size: px-to-rem(32px);
+            font-weight: 900;
+            text-transform: capitalize;
+            position: relative;
         }
 
         p {
-            font-size: 14px;
-            font-weight: 600;
-            max-width: 350px;
+            font-size: px-to-rem(14px);
+            max-width: 40ch;
+            position: relative;
+            margin-bottom: 4rem;
         }
     }
 
-    .egg {
-        background-image: url('./images/mobile/image-transform.jpg');
-    }
-
-    .cup {
-        background-image: url('./images/mobile/image-stand-out.jpg');
-    }
-
     .cherry {
-        background-image: url('./images/mobile/image-graphic-design.jpg');
         color: $Dark-desaturated-cyan;
     }
 
     .orange {
-        background-image: url('./images/mobile/image-photography.jpg');
         color: $Dark-blue;
+    }
+}
+
+@media screen and (min-width: 701px) {
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+
+        .about {
+            align-items: start;
+            text-align: left;
+            padding-right: 10vw;
+            padding-left: 10vw;
+            min-height: px-to-rem(600px);
+        }
+
+        .egg {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+        }
     }
 }
