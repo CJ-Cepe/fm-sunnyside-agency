@@ -3,6 +3,7 @@
 .services {
     display: grid;
     font-weight: 600;
+    grid-template-columns: minmax(120px, 1fr);
 
     .filler {
         min-height: px-to-rem(310px);
@@ -21,6 +22,7 @@
         align-items: center;
         gap: 2rem;
 
+        /* background-color: $White; */
         padding: 4rem #{fluid(28px, 160px)};
         line-height: 170%;
 
@@ -31,6 +33,7 @@
         }
 
         p {
+            font-weight: 500;
             color: $Dark-grayish-blue;
         }
 
