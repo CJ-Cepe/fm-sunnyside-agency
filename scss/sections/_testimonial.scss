@@ -1,0 +1,72 @@
+@use '../forward' as *;
+
+.testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    padding: 4rem 1.5rem;
+    color: $Very-dark-desaturated-blue;
+
+    h2 {
+        text-transform: uppercase;
+        letter-spacing: px-to-rem(2px);
+        font-size: px-to-rem(18px);
+        color: $Grayish-blue;
+    }
+
+    .clients {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        max-width: 1200px;
+
+        .testimonial {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            max-width: 35ch;
+
+            img {
+                width: 64px;
+                border-radius: 50%;
+            }
+
+            p {
+                line-height: 200%;
+                font-weight: 600;
+                color: $Very-dark-grayish-blue;
+            }
+
+            .author {
+                .name {
+                    margin-bottom: 0.5rem;
+                    font-weight: 900;
+                }
+
+                .position {
+                    font-size: px-to-rem(16px);
+                    color: $Grayish-blue;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 701px) {
+    .testimonials {
+        padding: 10rem 2rem;
+
+        .clients {
+            flex-direction: row;
+            gap: 2rem;
+
+            .testimonial {
+                gap: 3rem;
+            }
+        }
+    }
+}
