@@ -1,2 +1,44 @@
 @use "./sections/header";
-@use "./sections/others";
+@use "./sections/hero";
+@use "./sections/services";
+@use "./sections/testimonial";
+@use "./sections/gallery";
+@use "./sections/footer";
+
+@use "./forward" as *;
+
+* {
+    box-sizing: border-box;
+    font-family: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $Barlow;
+    font-size: px-to-rem(18px); // ?? 18 -> 16
+    text-align: center;
+    line-height: 150%;
+    position: relative;
+}
+
+h1,
+h2,
+h3 {
+    font-family: $Fraunces;
+    line-height: 120%;
+}
+
+.logo {
+    height: #{fluid(28px, 36px)};
+    width: auto;
+
+    &:hover {
+        filter: brightness(0) saturate(100%) invert(80%) sepia(94%) saturate(446%) hue-rotate(356deg) brightness(105%) contrast(112%);
+    }
+}
+
+a {
+    text-decoration: none;
+}

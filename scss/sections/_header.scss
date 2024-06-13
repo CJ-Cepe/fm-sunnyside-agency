@@ -10,6 +10,7 @@ header {
     .logo {
         align-self: center;
         margin-right: auto;
+        transition: filter 0.5s;
     }
 
     nav {
@@ -40,6 +41,7 @@ header {
                 font-weight: 700;
                 text-transform: uppercase;
                 color: $Very-dark-desaturated-blue;
+                transition: background-color 0.2s;
 
                 &:hover {
                     color: $White;
