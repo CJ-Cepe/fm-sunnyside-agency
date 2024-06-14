@@ -3,12 +3,12 @@ const hamOpt = document.querySelector('.ham-opt');
 const media = window.matchMedia('(width <= 700px)');
 
 media.addEventListener('change', (e) => {
-    if(e.matches){
+    if (e.matches) {
         /* hamOpt.setAttribute('inert', ''); */
     } else {
         /* hamOpt.removeAttribute('inert'); */
         hamBtn.setAttribute('aria-expanded', false);
-    } 
+    }
 })
 
 hamBtn.addEventListener('click', () => {
@@ -17,8 +17,3 @@ hamBtn.addEventListener('click', () => {
     hamBtn.focus();
     hamOpt.removeAttribute('inert');
 })
-
-
-
-//animation
-//prefers-reduced-motion
